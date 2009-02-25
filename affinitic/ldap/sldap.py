@@ -31,7 +31,7 @@ class LDAP(grok.GlobalUtility):
     def connect(self):
         """
         """
-        self._connection = ldap.initialize(self.server)
+        self._connection = ldap.initialize("ldap://%s" % self.server)
         print self._connection.simple_bind(self.managerDn, self.managerPwd)
 
     def close(self):

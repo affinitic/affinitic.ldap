@@ -24,6 +24,7 @@ setup(name='affinitic.ldap',
       zip_safe=False,
       install_requires=[
           'setuptools',
+          'python-ldap'
           # -*- Extra requirements: -*-
       ],
       entry_points="""
