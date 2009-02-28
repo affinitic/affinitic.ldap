@@ -68,6 +68,11 @@ class LDAP(grok.GlobalUtility):
         return self._connection.search_s(self.userBaseDn, ldap.SCOPE_SUBTREE,
                                          filterSearch)
 
+    def searchForAttr(self, attr, value):
+        filterSearch = u"(%s=%s)" % (attr, value)
+        return self._connection.search_s(self.userBaseDn, ldap.SCOPE_SUBTREE,
+                                         filterSearch)
+
     def searchAll(self, objectClass='person'):
         filterSearch = u"(objectClass=%s)" % objectClass
         return self._connection.search_s(self.userBaseDn, ldap.SCOPE_SUBTREE,

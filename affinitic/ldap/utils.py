@@ -29,11 +29,15 @@ mapping_latin_chars = {138: 's', 140: 'O', 142: 'z', 154: 's',
 250: 'u', 251: 'u', 252: 'u', 253: 'y', 255: 'y'}
 
 
-def normalizeString(text):
+def normalizeString(text, withDash=False):
+    if text is None:
+        return ''
     text = text.strip()
     text = text.lower()
     res = ""
     allowed = string.ascii_letters + string.digits
+    if withDash:
+        allowed += '-'
     for ch in text:
         if ch in allowed:
             res += ch
