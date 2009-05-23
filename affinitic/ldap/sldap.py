@@ -53,6 +53,7 @@ class LDAP(grok.GlobalUtility):
                                              'uniqueMember',
                                              uniqueMembers)])
 
+
     def updateUser(self, dn, userAttributes):
         attributes = [(ldap.MOD_REPLACE, key, item) for key, item in \
                       userAttributes.items()]
@@ -72,6 +73,11 @@ class LDAP(grok.GlobalUtility):
         filterSearch = u"(%s=%s)" % (attr, value)
         return self._connection.search_s(self.userBaseDn, ldap.SCOPE_SUBTREE,
                                          filterSearch)
+
+    def searchForAttr(self, attr, value, returnedAttrs):
+        filterSearch = u"(%s=%s)" % (attr, value)
+        return self._connection.search_s(self.userBaseDn, ldap.SCOPE_SUBTREE,
+                                         filterSearch, returnedAttrs)
 
     def searchAll(self, objectClass='person'):
         filterSearch = u"(objectClass=%s)" % objectClass
