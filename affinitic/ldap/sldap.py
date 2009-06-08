@@ -32,7 +32,7 @@ class LDAP(grok.GlobalUtility):
         """
         """
         self._connection = ldap.initialize("ldap://%s" % self.server)
-        print self._connection.simple_bind(self.managerDn, self.managerPwd)
+        self._connection.simple_bind(self.managerDn, self.managerPwd)
 
     def close(self):
         self._connection.unbind()
@@ -52,7 +52,6 @@ class LDAP(grok.GlobalUtility):
         self._connection.modify_s(groupDn, [(ldap.MOD_REPLACE,
                                              'uniqueMember',
                                              uniqueMembers)])
-
 
     def updateUser(self, dn, userAttributes):
         attributes = [(ldap.MOD_REPLACE, key, item) for key, item in \
