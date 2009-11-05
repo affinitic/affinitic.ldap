@@ -24,8 +24,8 @@ setup(name='affinitic.ldap',
       zip_safe=False,
       install_requires=[
           'setuptools',
-          'python-ldap'
-          # -*- Extra requirements: -*-
+          'python-ldap',
+          'grokcore.component'
       ],
       entry_points="""
       # -*- Entry points: -*-

@@ -12,7 +12,6 @@ import ldap
 import grokcore.component as grok
 from affinitic.ldap.interfaces import ILDAP
 
-
 class LDAP(grok.GlobalUtility):
     """
     An ldap connection
@@ -32,7 +31,8 @@ class LDAP(grok.GlobalUtility):
         """
         """
         self._connection = ldap.initialize("ldap://%s" % self.server)
-        self._connection.simple_bind(self.managerDn, self.managerPwd)
+        if self.managerDn is not None:
+            self._connection.simple_bind(self.managerDn, self.managerPwd)
 
     def close(self):
         self._connection.unbind()
