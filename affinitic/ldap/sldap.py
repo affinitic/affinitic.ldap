@@ -1,3 +1,4 @@
+#NOCHECK
 # -*- coding: utf-8 -*-
 """
 affinitic.ldap
@@ -23,6 +24,7 @@ class LDAP(grok.GlobalUtility):
     managerPwd = None
     userBaseDn = None
     groupBaseDn = None
+    port = 389
 
     def __init__(self):
         self.connect()
@@ -30,7 +32,7 @@ class LDAP(grok.GlobalUtility):
     def connect(self):
         """
         """
-        self._connection = ldap.initialize("ldap://%s" % self.server)
+        self._connection = ldap.initialize("ldap://%s:%s" % (self.server, self.port))
         if self.managerDn is not None:
             self._connection.simple_bind(self.managerDn, self.managerPwd)
 

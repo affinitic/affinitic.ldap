@@ -1,10 +1,10 @@
 Changelog
 =========
 
-0.3 (unreleased)
+0.3 (2010-03-23)
 ----------------
 
-- Nothing changed yet.
+- Handle connection with another port number
 
 
 0.2 (2010-01-06)
