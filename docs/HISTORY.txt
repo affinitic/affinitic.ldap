@@ -4,6 +4,9 @@ Changelog
 0.3.2 (unreleased)
 ------------------
 
+- Add test-all parts #8959
+  [Aurore]
+
 - Remove a duplicated method : #8174
   [seb]
 
