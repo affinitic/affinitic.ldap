@@ -4,8 +4,8 @@ Changelog
 0.3.3 (unreleased)
 ------------------
 
-- Nothing changed yet.
-
+- Add new fuction for multisearch #9005
+  [seb]
 
 0.3.2 (2016-10-26)
 ------------------
